@@ -2,28 +2,30 @@
 #define NETWORK_H_
 
 
-#include <vector>
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <math.h>
+#include <vector>
 using namespace std;
 
 
 
-class network {
-	public:
-		network(vector<int> layers, vector<double> weights);
-		~network();
-		vector<double> run(vector<float> inputs);
-		friend ostream& operator << (ostream& file, const network& out);
-	private:
-		double sigmoid(double input);
-		int				num_layers;
-		int				num_nodes;
-		int				num_inputs;
-		int				num_outputs;
-		vector<double>	the_weights;
-		vector<int>		the_layers;
+class network
+{
+  public:
+	network(vector<int> layers, vector<double> weights);
+	~network();
+	vector<double> run(vector<float> inputs);
+	friend ostream& operator<<(ostream& file, const network& out);
+
+  private:
+	double sigmoid(double input);
+	int num_layers;
+	int num_nodes;
+	int num_inputs;
+	int num_outputs;
+	vector<double> the_weights;
+	vector<int> the_layers;
 };
 
 //	things to note:
@@ -35,4 +37,4 @@ class network {
 
 
 
-#endif	// NETWORK_H_
+#endif // NETWORK_H_
